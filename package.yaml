@@ -5,12 +5,14 @@ extra-source-files:
 
 dependencies:
 - base >= 4.7 && < 5
-- clash-ghc
 - clash-lib
 - clash-prelude
 - ghc-typelits-natnormalise
 - ghc-typelits-extra
 - ghc-typelits-knownnat
+
+build-tools:
+- clash-ghc
 
 default-extensions:
 - BinaryLiterals
