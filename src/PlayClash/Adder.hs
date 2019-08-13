@@ -47,7 +47,7 @@ chainAdder32 = chainAdder
 
 refAdder :: KnownNat n => Bit -> Vec n Bit -> Vec n Bit -> (Bit, Vec n Bit)
 refAdder cin a b = (cout, res)
-    where cout :> res = bv2v $ (v2bv a `plus` v2bv b) + boolToBV (bitToBool cin)
+    where cout :> res = bv2v $ (v2bv a `add` v2bv b) + boolToBV (bitToBool cin)
 
 {-# ANN refAdder32 Synthesize
     { t_name = "ref_adder"
