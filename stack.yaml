@@ -11,7 +11,6 @@ extra-deps:
     - clash-lib
     - clash-ghc
     - clash-cosim
-    - clash-term
   - git: https://github.com/clash-lang/ghc-typelits-extra
     commit: 145a1a524d9ee163887e7da2edc11cd2ff977ab8
   - type-errors-0.2.0.0@sha256:b8f97a0cf72f4fcdc9bfd02d753f84e65e5e5d165d53f82947a95cdcbd7f2945,2082

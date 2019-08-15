@@ -13,7 +13,7 @@ halfAdder a b = (a .&. b, a `xor` b)
         , PortName "b"
         ]
     , t_output =
-        PortProduct "out"
+        PortProduct ""
             [ PortName "cout"
             , PortName "res"
             ]
@@ -37,9 +37,10 @@ chainAdder cin a b = mapAccumR go cin (zip a b)
         , PortName "b"
         ]
     , t_output =
-        PortProduct "out"
+        PortProduct ""
             [ PortName "cout"
-            , PortName "res" ]
+            , PortName "res"
+            ]
     } #-}
 {-# NOINLINE chainAdder32 #-}
 chainAdder32 :: Bit -> Vec 32 Bit -> Vec 32 Bit -> (Bit, Vec 32 Bit)
@@ -57,9 +58,10 @@ refAdder cin a b = (cout, res)
         , PortName "b"
         ]
     , t_output =
-        PortProduct "out"
+        PortProduct ""
             [ PortName "cout"
-            , PortName "res" ]
+            , PortName "res"
+            ]
     } #-}
 {-# NOINLINE refAdder32 #-}
 refAdder32 :: Bit -> Vec 32 Bit -> Vec 32 Bit -> (Bit, Vec 32 Bit)

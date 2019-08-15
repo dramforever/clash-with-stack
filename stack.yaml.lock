@@ -69,22 +69,6 @@ packages:
     git: git@github.com:clash-lang/clash-compiler
     commit: 81e2350975de0755241675513596d137cba198cc
 - completed:
-    subdir: clash-term
-    cabal-file:
-      size: 1339
-      sha256: b3a4152f54a51d5fb9f6877459f1be487c0c9a134eb58cfd2525f6abec032273
-    name: clash-term
-    version: '0.99'
-    git: git@github.com:clash-lang/clash-compiler
-    pantry-tree:
-      size: 349
-      sha256: dfdca0de2e80a39345a5f9baf15b4d31beaac4f989ae3ba1183de4d0d0d1bd4a
-    commit: 81e2350975de0755241675513596d137cba198cc
-  original:
-    subdir: clash-term
-    git: git@github.com:clash-lang/clash-compiler
-    commit: 81e2350975de0755241675513596d137cba198cc
-- completed:
     cabal-file:
       size: 4759
       sha256: 6aa8cbcc1e84d71e6b40a35ef67e773004875e34cae5020e4f951da5cd4fa8bf

@@ -7,6 +7,7 @@ dependencies:
 - base >= 4.7 && < 5
 - clash-lib
 - clash-prelude
+- clash-cosim
 - ghc-typelits-natnormalise
 - ghc-typelits-extra
 - ghc-typelits-knownnat
@@ -40,14 +41,14 @@ default-extensions:
 - NoMonomorphismRestriction
 - NoStrict
 - NoStrictData
+- PartialTypeSignatures
 
 ghc-options:
-- -fplugin
-- GHC.TypeLits.Normalise
-- -fplugin
-- GHC.TypeLits.Extra.Solver
-- -fplugin
-- GHC.TypeLits.KnownNat.Solver
+- -fplugin=GHC.TypeLits.Normalise
+- -fplugin=GHC.TypeLits.Extra.Solver
+- -fplugin=GHC.TypeLits.KnownNat.Solver
+- -Wall
+- -Wno-partial-type-signatures
 
 library:
   source-dirs: src
