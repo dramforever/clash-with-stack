@@ -2,6 +2,8 @@ module PlayClash.Stateful where
 
 import Clash.Prelude
 
+import PlayClash.Ports
+
 acc :: _
     => Signal dom a
     -> Signal dom a
@@ -10,13 +12,8 @@ acc a = r
 
 {-# ANN acc32 Synthesize
     { t_name = "acc"
-    , t_inputs =
-        [ PortName "clk"
-        , PortName "rst"
-        , PortName "en"
-        , PortName "in"
-        ]
-    , t_output = PortName "out"
+    , t_inputs = ports [ "clk", "res", "en", "in" ]
+    , t_output = port "out"
     } #-}
 acc32
     :: Clock System
@@ -35,13 +32,8 @@ fir ker a = dot ker <$> bundle (window a)
 
 {-# ANN fir3 Synthesize
     { t_name = "fir3"
-    , t_inputs =
-        [ PortName "clk"
-        , PortName "rst"
-        , PortName "en"
-        , PortName "in"
-        ]
-    , t_output = PortName "out"
+    , t_inputs = ports [ "clk", "res", "en", "in" ]
+    , t_output = port "out"
     } #-}
 fir3
     :: Clock System
@@ -59,13 +51,8 @@ inix a = r
 
 {-# ANN inix32 Synthesize
     { t_name = "inix"
-    , t_inputs =
-        [ PortName "clk"
-        , PortName "rst"
-        , PortName "en"
-        , PortName "in"
-        ]
-    , t_output = PortName "out"
+    , t_inputs = ports [ "clk", "res", "en", "in" ]
+    , t_output = port "out"
     } #-}
 inix32
     :: Clock System

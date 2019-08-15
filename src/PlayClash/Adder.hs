@@ -2,21 +2,15 @@ module PlayClash.Adder where
 
 import Clash.Prelude
 
+import PlayClash.Ports
+
 halfAdder :: Bit -> Bit -> (Bit, Bit)
 halfAdder a b = (a .&. b, a `xor` b)
 
 {-# ANN fullAdder Synthesize
     { t_name = "full_adder"
-    , t_inputs =
-        [ PortName "cin"
-        , PortName "a"
-        , PortName "b"
-        ]
-    , t_output =
-        PortProduct ""
-            [ PortName "cout"
-            , PortName "res"
-            ]
+    , t_inputs = ports [ "cin", "a", "b" ]
+    , t_output = port [ "cout", "res" ]
     } #-}
 fullAdder :: Bit -> Bit -> Bit -> (Bit, Bit)
 fullAdder ci a b = (c1 .|. c2, u2)
@@ -31,16 +25,8 @@ chainAdder cin a b = mapAccumR go cin (zip a b)
 
 {-# ANN chainAdder32 Synthesize
     { t_name = "chain_adder"
-    , t_inputs =
-        [ PortName "cin"
-        , PortName "a"
-        , PortName "b"
-        ]
-    , t_output =
-        PortProduct ""
-            [ PortName "cout"
-            , PortName "res"
-            ]
+    , t_inputs = ports [ "cin", "a", "b" ]
+    , t_output = port [ "cout", "res" ]
     } #-}
 {-# NOINLINE chainAdder32 #-}
 chainAdder32 :: Bit -> Vec 32 Bit -> Vec 32 Bit -> (Bit, Vec 32 Bit)
@@ -52,16 +38,8 @@ refAdder cin a b = (cout, res)
 
 {-# ANN refAdder32 Synthesize
     { t_name = "ref_adder"
-    , t_inputs =
-        [ PortName "cin"
-        , PortName "a"
-        , PortName "b"
-        ]
-    , t_output =
-        PortProduct ""
-            [ PortName "cout"
-            , PortName "res"
-            ]
+    , t_inputs = ports [ "cin", "a", "b" ]
+    , t_output = port [ "cout", "res" ]
     } #-}
 {-# NOINLINE refAdder32 #-}
 refAdder32 :: Bit -> Vec 32 Bit -> Vec 32 Bit -> (Bit, Vec 32 Bit)
