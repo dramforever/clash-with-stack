@@ -15,8 +15,13 @@ acc a = r
 
 {-# ANN acc32 Synthesize
     { t_name = "acc"
-    , t_inputs = ports [ "clk", "res", "en", "in" ]
-    , t_output = port "out"
+    , t_inputs =
+        [ PortName "clk"
+        , PortName "rst"
+        , PortName "en"
+        , PortName "in"
+        ]
+    , t_output = PortName "out"
     } #-}
 acc32
     :: Clock System
@@ -39,8 +44,13 @@ fir ker a = dot ker <$> bundle (window a)
 
 {-# ANN fir3 Synthesize
     { t_name = "fir3"
-    , t_inputs = ports [ "clk", "res", "en", "in" ]
-    , t_output = port "out"
+    , t_inputs =
+        [ PortName "clk"
+        , PortName "rst"
+        , PortName "en"
+        , PortName "in"
+        ]
+    , t_output = PortName "out"
     } #-}
 fir3
     :: Clock System
@@ -62,8 +72,13 @@ inix a = r
 
 {-# ANN inix32 Synthesize
     { t_name = "inix"
-    , t_inputs = ports [ "clk", "res", "en", "in" ]
-    , t_output = port "out"
+    , t_inputs =
+        [ PortName "clk"
+        , PortName "rst"
+        , PortName "en"
+        , PortName "in"
+        ]
+    , t_output = PortName "out"
     } #-}
 inix32
     :: Clock System

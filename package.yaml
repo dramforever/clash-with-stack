@@ -41,9 +41,7 @@ default-extensions:
 - NoMonomorphismRestriction
 - NoStrict
 - NoStrictData
-- OverloadedStrings
-- OverloadedLists
-- QuasiQuotes
+- PartialTypeSignatures
 
 ghc-options:
 - -fplugin=GHC.TypeLits.Normalise

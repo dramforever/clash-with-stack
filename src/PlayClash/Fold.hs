@@ -1,12 +1,11 @@
 module PlayClash.Fold where
 
 import Clash.Prelude
-import PlayClash.Ports
 
 {-# ANN or12 Synthesize
     { t_name = "or12"
-    , t_inputs = ports [ "in" ]
-    , t_output = port "out"
+    , t_inputs = [ PortName "in" ]
+    , t_output = PortName "out"
     } #-}
 or12 :: Vec 12 Bool -> Bool
 or12 = fold (||)
