@@ -4,7 +4,10 @@ import Clash.Prelude
 
 import PlayClash.Ports
 
-acc :: _
+acc ::
+     ( HiddenClockResetEnable dom
+     , Num a, Undefined a
+     )
     => Signal dom a
     -> Signal dom a
 acc a = r
@@ -23,7 +26,11 @@ acc32
     -> Signal System (Unsigned 32)
 acc32 = exposeClockResetEnable acc
 
-fir :: _
+fir ::
+     ( HiddenClockResetEnable dom
+     , Num a, Default a, Undefined a
+     , KnownNat n
+     )
     => Vec (n + 1) a
     -> Signal dom a
     -> Signal dom a
@@ -43,7 +50,11 @@ fir3
     -> Signal System (Unsigned 32)
 fir3 = exposeClockResetEnable (fir (3 :> 1 :> 6 :> Nil))
 
-inix :: _
+inix
+    ::
+     ( HiddenClockResetEnable dom
+     , Num a, Undefined a
+     )
     => Signal dom a
     -> Signal dom a
 inix a = r
