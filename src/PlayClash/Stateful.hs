@@ -2,8 +2,6 @@ module PlayClash.Stateful where
 
 import Clash.Prelude
 
-import PlayClash.Ports
-
 acc ::
      ( HiddenClockResetEnable dom
      , Num a, Undefined a
