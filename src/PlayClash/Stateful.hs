@@ -4,7 +4,7 @@ import Clash.Prelude
 
 acc ::
      ( HiddenClockResetEnable dom
-     , Num a, Undefined a
+     , Num a, NFDataX a
      )
     => Signal dom a
     -> Signal dom a
@@ -31,7 +31,7 @@ acc32 = exposeClockResetEnable acc
 
 fir ::
      ( HiddenClockResetEnable dom
-     , Num a, Default a, Undefined a
+     , Num a, Default a, NFDataX a
      , KnownNat n
      )
     => Vec (n + 1) a
@@ -61,7 +61,7 @@ fir3 = exposeClockResetEnable (fir (3 :> 1 :> 6 :> Nil))
 inix
     ::
      ( HiddenClockResetEnable dom
-     , Num a, Undefined a
+     , Num a, NFDataX a
      )
     => Signal dom a
     -> Signal dom a

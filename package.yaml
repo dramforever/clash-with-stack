@@ -7,7 +7,7 @@ dependencies:
 - base >= 4.7 && < 5
 - clash-lib
 - clash-prelude
-- clash-cosim
+# - clash-cosim
 - ghc-typelits-natnormalise
 - ghc-typelits-extra
 - ghc-typelits-knownnat

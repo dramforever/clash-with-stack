@@ -1,17 +1,13 @@
-resolver: lts-13.30
+resolver: lts-14.4
 
 packages:
 - .
 
 extra-deps:
-  - git: git@github.com:clash-lang/clash-compiler
-    commit: 81e2350975de0755241675513596d137cba198cc
-    subdirs:
-    - clash-prelude
-    - clash-lib
-    - clash-ghc
-    - clash-cosim
-  - git: https://github.com/clash-lang/ghc-typelits-extra
-    commit: 145a1a524d9ee163887e7da2edc11cd2ff977ab8
-  - type-errors-0.2.0.0@sha256:b8f97a0cf72f4fcdc9bfd02d753f84e65e5e5d165d53f82947a95cdcbd7f2945,2082
-  - first-class-families-0.5.0.0@sha256:6e1488c502d5b1e780739a53edab65a307c6bf94d4232fab70e696e87f0fa087,1290
+- clash-ghc-1.0.0@sha256:b586b601147a9271990a03a54a9edebb043543d34df4dcf161373e7e7195e7a8,7744
+- clash-lib-1.0.0@sha256:10e219e941b229810e66d1ed9dd8d37b45cc7908348788f8b7e0e843bf3952a4,8704
+- clash-prelude-1.0.0@sha256:0c2ba743a2411ef3fda63c39985982d529f4176e057a04848820e73a0665fa50,12916
+
+- ghc-typelits-extra-0.3.1@sha256:06180adc1a5ed1d5f136a8afbf54c8b69da4efee527dc07e531909ac43afc5b6,4759
+- type-errors-0.2.0.0@sha256:b8f97a0cf72f4fcdc9bfd02d753f84e65e5e5d165d53f82947a95cdcbd7f2945,2082
+- first-class-families-0.5.0.0@sha256:6e1488c502d5b1e780739a53edab65a307c6bf94d4232fab70e696e87f0fa087,1290
