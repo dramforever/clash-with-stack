@@ -11,6 +11,7 @@ dependencies:
 - ghc-typelits-natnormalise
 - ghc-typelits-extra
 - ghc-typelits-knownnat
+- template-haskell
 
 build-tools:
 - clash-ghc
@@ -32,7 +33,6 @@ default-extensions:
 - MonoLocalBinds
 - QuasiQuotes
 - ScopedTypeVariables
-- TemplateHaskell
 - TemplateHaskellQuotes
 - TypeApplications
 - TypeFamilies
@@ -42,12 +42,19 @@ default-extensions:
 - NoStrict
 - NoStrictData
 - PartialTypeSignatures
+- NumDecimals
+- RankNTypes
+- OverloadedStrings
+- OverloadedLists
+- AllowAmbiguousTypes
 
 ghc-options:
 - -fplugin=GHC.TypeLits.Normalise
 - -fplugin=GHC.TypeLits.Extra.Solver
 - -fplugin=GHC.TypeLits.KnownNat.Solver
 - -Wall
+- -Wno-partial-type-signatures
+- -Wno-orphans
 
 library:
   source-dirs: src
