@@ -54,7 +54,6 @@ ghc-options:
 - -fplugin=GHC.TypeLits.KnownNat.Solver
 - -Wall
 - -Wno-partial-type-signatures
-- -Wno-orphans
 
 library:
   source-dirs: src

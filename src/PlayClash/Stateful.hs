@@ -6,8 +6,7 @@ import Clash.Prelude
 
 type Sys = XilinxSystem
 
-acc
-    :: (KnownDomain dom, HiddenClockResetEnable dom)
+acc :: _
     => Signal dom (Unsigned 32) -> Signal dom (Unsigned 32)
 acc a = r
     where r = register 0 (r + a)
@@ -34,10 +33,7 @@ exposeClockReset
     => Clock dom -> Reset dom -> r
 exposeClockReset go clk rst = exposeClockResetEnable go clk rst enableGen
 
-fir ::
-     ( HiddenClockResetEnable dom
-     , Num a, Default a, NFDataX a
-     )
+fir :: _
     => a -> a -> a
     -> Signal dom a
     -> Signal dom a

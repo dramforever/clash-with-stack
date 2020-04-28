@@ -1,3 +1,4 @@
+{-# OPTIONS -Wno-orphans #-}
 module PlayClash.Utils where
 
 import Clash.Prelude
