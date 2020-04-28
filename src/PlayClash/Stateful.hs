@@ -1,13 +1,14 @@
+{-# LANGUAGE RankNTypes #-}
+
 module PlayClash.Stateful where
 
 import Clash.Prelude
 
-acc ::
-     ( HiddenClockResetEnable dom
-     , Num a, NFDataX a
-     )
-    => Signal dom a
-    -> Signal dom a
+type Sys = XilinxSystem
+
+acc
+    :: (KnownDomain dom, HiddenClockResetEnable dom)
+    => Signal dom (Unsigned 32) -> Signal dom (Unsigned 32)
 acc a = r
     where r = register 0 (r + a)
 
@@ -16,47 +17,50 @@ acc a = r
     , t_inputs =
         [ PortName "clk"
         , PortName "rst"
-        , PortName "en"
         , PortName "in"
         ]
     , t_output = PortName "out"
     } #-}
 acc32
-    :: Clock System
-    -> Reset System
-    -> Enable System
-    -> Signal System (Unsigned 32)
-    -> Signal System (Unsigned 32)
-acc32 = exposeClockResetEnable acc
+    :: Clock Sys
+    -> Reset Sys
+    -> Signal Sys (Unsigned 32)
+    -> Signal Sys (Unsigned 32)
+acc32 clk rst = exposeClockResetEnable (acc @Sys) clk rst enableGen
+
+exposeClockReset
+    :: (HiddenClockResetEnable dom => r)
+    -> KnownDomain dom
+    => Clock dom -> Reset dom -> r
+exposeClockReset go clk rst = exposeClockResetEnable go clk rst enableGen
 
 fir ::
      ( HiddenClockResetEnable dom
      , Num a, Default a, NFDataX a
-     , KnownNat n
      )
-    => Vec (n + 1) a
+    => a -> a -> a
     -> Signal dom a
     -> Signal dom a
-fir ker a = dot ker <$> bundle (window a)
-    where dot m n = sum (liftA2 (*) m n)
+fir p1 p2 p3 a1 = pure p1 * a1 + pure p2 * a2 + pure p3 * a3
+    where
+        a2 = register 0 a1
+        a3 = register 0 a2
 
 {-# ANN fir3 Synthesize
     { t_name = "fir3"
     , t_inputs =
         [ PortName "clk"
         , PortName "rst"
-        , PortName "en"
         , PortName "in"
         ]
     , t_output = PortName "out"
     } #-}
 fir3
-    :: Clock System
-    -> Reset System
-    -> Enable System
-    -> Signal System (Unsigned 32)
-    -> Signal System (Unsigned 32)
-fir3 = exposeClockResetEnable (fir (3 :> 1 :> 6 :> Nil))
+    :: Clock Sys
+    -> Reset Sys
+    -> Signal Sys (Unsigned 32)
+    -> Signal Sys (Unsigned 32)
+fir3 = exposeClockReset (fir 3 1 6)
 
 inix
     ::
@@ -73,15 +77,13 @@ inix a = r
     , t_inputs =
         [ PortName "clk"
         , PortName "rst"
-        , PortName "en"
         , PortName "in"
         ]
     , t_output = PortName "out"
     } #-}
 inix32
-    :: Clock System
-    -> Reset System
-    -> Enable System
-    -> Signal System (Unsigned 32)
-    -> Signal System (Unsigned 32)
-inix32 = exposeClockResetEnable inix
+    :: Clock Sys
+    -> Reset Sys
+    -> Signal Sys (Unsigned 32)
+    -> Signal Sys (Unsigned 32)
+inix32 = exposeClockReset inix
