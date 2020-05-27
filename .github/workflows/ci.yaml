@@ -10,6 +10,9 @@ jobs:
   build:
     name: CI
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        stack_options: ["", "--stack-yaml"]
     steps:
       - name: Setup GHC
         uses: actions/setup-haskell@v1
@@ -31,4 +34,4 @@ jobs:
             ${{ runner.os }}-
 
       - name: Build
-        run: "stack build --fast --no-terminal --system-ghc"
+        run: "stack ${{ matrix.stack_options }} build --fast --no-terminal --system-ghc"
