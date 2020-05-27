@@ -28,7 +28,8 @@ acc32
 acc32 clk rst = exposeClockResetEnable (acc @Sys) clk rst enableGen
 
 exposeClockReset
-    :: (HiddenClockResetEnable dom => r)
+    :: _
+    => (HiddenClockResetEnable dom => r)
     -> KnownDomain dom
     => Clock dom -> Reset dom -> r
 exposeClockReset go clk rst = exposeClockResetEnable go clk rst enableGen
