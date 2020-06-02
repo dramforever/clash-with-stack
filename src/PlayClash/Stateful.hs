@@ -27,13 +27,6 @@ acc32
     -> Signal Sys (Unsigned 32)
 acc32 clk rst = exposeClockResetEnable (acc @Sys) clk rst enableGen
 
-exposeClockReset
-    :: _
-    => (HiddenClockResetEnable dom => r)
-    -> KnownDomain dom
-    => Clock dom -> Reset dom -> r
-exposeClockReset go clk rst = exposeClockResetEnable go clk rst enableGen
-
 fir :: _
     => a -> a -> a
     -> Signal dom a
@@ -57,7 +50,7 @@ fir3
     -> Reset Sys
     -> Signal Sys (Unsigned 32)
     -> Signal Sys (Unsigned 32)
-fir3 = exposeClockReset (fir 3 1 6)
+fir3 clk rst = exposeClockResetEnable (fir 3 1 6) clk rst enableGen
 
 inix
     ::
@@ -83,4 +76,4 @@ inix32
     -> Reset Sys
     -> Signal Sys (Unsigned 32)
     -> Signal Sys (Unsigned 32)
-inix32 = exposeClockReset inix
+inix32 clk rst = exposeClockResetEnable inix clk rst enableGen
