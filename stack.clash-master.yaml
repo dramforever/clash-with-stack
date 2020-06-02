@@ -4,7 +4,7 @@ packages:
 - .
 
 extra-deps:
-- url: https://github.com/clash-lang/clash-compiler/archive/enable_monomorphism_restriction.tar.gz
+- url: https://github.com/clash-lang/clash-compiler/archive/master.tar.gz
   subdirs:
   - clash-ghc
   - clash-lib
