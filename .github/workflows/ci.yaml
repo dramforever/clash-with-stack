@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        stack_yaml: ["stack.yaml", "stack.clash-master.yaml"]
+
     steps:
       - name: Setup GHC
         uses: actions/setup-haskell@v1
@@ -30,9 +29,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.stack
-          key: ${{ runner.os }}-${{ hashFiles(format('{0}.lock', matrix.stack_yaml)) }}
+          key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-
 
       - name: Build
-        run: "stack --stack-yaml ${{ matrix.stack_yaml }} build --fast --no-terminal --system-ghc"
+        run: "stack build --fast --no-terminal --system-ghc"
