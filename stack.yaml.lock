@@ -3,38 +3,10 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages:
-- completed:
-    hackage: clash-ghc-1.2.0@sha256:6411d5f73ce26dd5d90dfb54a27aaba44e04c3002f6db9524e41f2f3f1488a44,7991
-    pantry-tree:
-      size: 2587
-      sha256: 184c0751df03f193be77661e7c00f16cb5a062cddbdafa797fc37d48e691810a
-  original:
-    hackage: clash-ghc-1.2.0@sha256:6411d5f73ce26dd5d90dfb54a27aaba44e04c3002f6db9524e41f2f3f1488a44,7991
-- completed:
-    hackage: clash-lib-1.2.0@sha256:ce2c46a60dbdedafa26bcccc8304db0edbccd57d003cbc8a1769db06053eaa28,10664
-    pantry-tree:
-      size: 16035
-      sha256: 92738c47247bb72b351ae7b3302438c1854eca19fd4247a9ab6c47f114044ab7
-  original:
-    hackage: clash-lib-1.2.0@sha256:ce2c46a60dbdedafa26bcccc8304db0edbccd57d003cbc8a1769db06053eaa28,10664
-- completed:
-    hackage: clash-prelude-1.2.0@sha256:534c9b29e2242351fc60d11e357660a8de4c77aa5926d6dcf6bb10ea84a55a84,14724
-    pantry-tree:
-      size: 10202
-      sha256: 979a387e0b9f901f7e1c8e279ce7a055a826c016a4f4c9cc9ac9a54a68622f23
-  original:
-    hackage: clash-prelude-1.2.0@sha256:534c9b29e2242351fc60d11e357660a8de4c77aa5926d6dcf6bb10ea84a55a84,14724
-- completed:
-    hackage: concurrent-supply-0.1.8@sha256:9373f4868ad28936a7b93781b214ef4afdeacf377ef4ac729583073491c9f9fb,1627
-    pantry-tree:
-      size: 400
-      sha256: bdfaa167ae3249f858ba248aea2e9b97ab9b13af6e68c73b7c3192e717e11b83
-  original:
-    hackage: concurrent-supply-0.1.8@sha256:9373f4868ad28936a7b93781b214ef4afdeacf377ef4ac729583073491c9f9fb,1627
+packages: []
 snapshots:
 - completed:
-    size: 491373
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/15/3.yaml
-    sha256: 29e9ff61b8bf4b4fcff55cde3ac106ebb971f0d21331dccac9eee63374fa6ca8
-  original: lts-15.3
+    size: 531674
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/2.yaml
+    sha256: 4b08fb9338ca297de7ade8318f4be1216f14dff8c0426c001fb7886ee88cb84a
+  original: lts-16.2
