@@ -43,6 +43,7 @@ default-extensions:
 - NoStrictData
 - PartialTypeSignatures
 - NumDecimals
+- NumericUnderscores
 - RankNTypes
 - OverloadedStrings
 - OverloadedLists
